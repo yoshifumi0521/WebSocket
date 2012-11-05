@@ -1,14 +1,16 @@
-//Expressのサーバーを生成する。
-var express = require("express");
+$(function() {
+  var socket = io.connect();
 
-console.log(express);
+  socket.on('connect', function() {
+    console.log('connected');
 
+    //socket.emit('msg send', 'message from client');
 
-
-
-
-
-
-
-
-
+    //socket.on('msg push', function(data) {
+    //  console.log(data); // 'message from server'
+    //});
+  
+  
+  
+  });
+});
