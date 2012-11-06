@@ -11,26 +11,15 @@ console.log('server start:', 3000);
 
 // Socket.IO
 var io = require('socket.io')
-  , io = io.listen(server);
-
-
+  , io = io.listen(server)
+  ;
 
 io.sockets.on('connection', function(socket) {
-  console.log('サーバーが接続');
-
-  // メッセージの受信
-  //socket.on('msg send', function(data) {
-    //console.log(data); // message from client
-    // データを送信したクライアントに返信
-    //socket.emit('msg push', 'message from server');
-    // データを送信したクライアント以外のクライアントに送信
-    //socket.broadcast.emit('msg push', 'message from server');
   
-  
-  
-  
-  //});
+  console.log("サーバーの接続");
 
-
-
+  io.sockets.emit('login', socket.id);
+  socket.on('post', function(data) {
+    io.sockets.emit('post', { id: socket.id, post: data });
+  });
 });
