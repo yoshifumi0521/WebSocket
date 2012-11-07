@@ -1,19 +1,4 @@
-# chat example
+# WebSocketの勉強
 
-## HOW TO RUN
+Expressとsocket.ioを使って、WebScocketを利用する。
 
-```
-npm install
-node server.js
-```
-
-## Volume
-
-```
-$ wc -l app.js public/chat.js public/index.html package.json
-      19 app.js
-      17 public/chat.js
-      17 public/index.html
-      13 package.json
-      66 total
-```
