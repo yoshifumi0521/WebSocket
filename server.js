@@ -19,11 +19,12 @@ io.sockets.on('connection', function(socket) {
   
   console.log("サーバーの接続");
   //"login"イベントで、ソケットのIDを送る。
+  //io.sockets.emitは、すべてのクライアントに送るということ。socket.emitが、クライアントだけ。
   io.sockets.emit('login', socket.id);
 
   //"post"イベントを用意して、クライアントからリクエストがきたらする処理。
   socket.on('post', function(data) {
-    //クライアントに送る。
+    //すべてのクライアントに送る。io.sockets.emitを使う。
     io.sockets.emit('post', { id: socket.id, post: data });
   });
 
